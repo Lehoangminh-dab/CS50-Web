@@ -9,12 +9,46 @@
   border: 1px solid #dfe1e5;
   box-shadow: none;
   border-radius: 24px;
-  margin: 0 auto;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
   width: 584px;
   height: 48px;
 }
 
 .button-container {
+  margin-top: 20px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+ 
+.submit-button {
+  background-color: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  color: #3c4043;
+  font-family: arial,sans-serif;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  height: 36px;
+  text-align: center;
+  }
+
+  .submit-button:hover {
+    border: 1px solid black;
+  }
+
+  .submit-button:focus {
+    border: 1px solid blue;
+}
+  
+.link-container {
+  text-align: right;
+}
+
+.nav-link {
+  margin: 10px;
+  color: black;
+  text-decoration: none;
 }

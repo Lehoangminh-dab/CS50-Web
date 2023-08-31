@@ -1,0 +1,4 @@
+THE GOAL: COMPLETE THE MAIN INDEX PAGE
+PART 1: FUNCTIONALITY
+PART 2: STYLING: 
+-Change the styling of the links till correct
