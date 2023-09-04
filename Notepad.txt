@@ -1,0 +1,98 @@
+GOAL: COMPLETE THE "ADVANCED SEARCH" PAGE
+TO-DOs:
+-The Navbar
+-The "Advanced Search" heading 1
+-The "Horizontal Line" div
+-The "Guideline" divs
+-The grid form:
+  +Column 1: Parameters
+  +Column 2: Input boxes
+    *Advanced Search Submit button
+  +Column 3: Input guidelines
+
+CODE ARCHITECTURE:
+
+div Navbar {
+  display: flex
+  justify-content: space-between
+  
+  img Google-Logo {
+    height: 24px
+    width: 74px
+    margin: Same as that of anchor normal-search
+  }
+
+  anchor normal-search {
+    class: nav-link 
+  }
+}
+
+h1 Advanced Search {
+  margin-left: 10px
+  margin-top: any
+  color: #d93025
+  font-size: 20px
+  font-family: arial, sans-serif
+}
+
+div horizontal-line {
+  margin-top: any;
+  border-bottom: 1px solid #ebebeb;
+}
+
+div guidelines {
+  "Find pages with" {
+    margin-left: 10px
+    font-size: 16px;
+    font-weight: 500
+    color: #333
+  }
+
+  "To do this in the search box" {
+    font-size: 13px;
+    font weight: 700;
+    color: #777
+  }
+}
+
+grid Input-grid {
+  COLUMN 1 {
+    width: 172px
+    
+    col1-item {
+      font-size: 13px;
+      color: #222;
+      height: 30
+      margin-bottom: 12
+    }
+  }
+
+  COLUMN 2 {
+    width: auto
+    
+    col2-item {
+      border-radius: 1px;
+      border: 1px solid #d9d9d9;
+      border-top: 1px solid #c0c0c0;
+      font-size: 13px;
+      height: 25px;
+      padding: 1px 8px;
+    }
+
+    advanced-search-button {
+      height: 28px
+      width: 94px
+      background-color: #4d90fe
+    }
+  }
+  
+  COLUMN 3 {
+    width: 345px
+    
+    col3-item {
+      font-size: 11px
+      padding-left: 5px
+      color: #555
+    }
+  }
+}
