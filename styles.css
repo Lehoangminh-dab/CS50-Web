@@ -52,3 +52,53 @@
   color: black;
   text-decoration: none;
 }
+
+.nav-bar {
+  display: flex;
+  /* Justify content so that the elements in the div are aligned to the edges of the div */
+  justify-content: space-between;
+}
+
+.advanced-h1 {
+  margin-left: 10px;
+  margin-top: 30px;
+  color: #d93025;
+  font-size: 20px;
+  font-family: arial, sans-serif
+}
+
+.horizontal-line {
+  margin-top: 20px;
+  border-bottom: 1px solid #ebeeeb;
+}
+
+.advanced-guidelines {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col1-heading {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.col3-heading {
+  font-size: 13px;
+  font-weight: 700;
+  color: #777;
+  margin-right: 30px; /* TO-DO: FIND THE ACCURATE NUMBER */
+}
+
+.advanced-input-grid {
+  display: grid;
+}
+
+.col-one-item {
+  font-size: 13px;
+  color: #222;
+  height: 30px;
+  margin-bottom: 12px;
+  list-style-type: none;
+}
