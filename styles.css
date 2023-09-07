@@ -91,14 +91,42 @@
   margin-right: 30px; /* TO-DO: FIND THE ACCURATE NUMBER */
 }
 
+/* Apply CSS Grid to the container */
 .advanced-input-grid {
   display: grid;
+  grid-template-columns: 172px 1fr 345px; /* Two columns, first one auto-sized */
+  gap: 10px; /* Adjust the gap between columns */
+}
+
+/* Style the first column */
+.column-one {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .col-one-item {
-  font-size: 13px;
-  color: #222;
-  height: 30px;
-  margin-bottom: 12px;
-  list-style-type: none;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Style the second column */
+.column-two {
+  padding: 0;
+  margin: 0;
+}
+
+.column-two-item {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.advanced-submit-container {
+  text-align: right;
+}
+
+.advanced-submit-button {
+
 }

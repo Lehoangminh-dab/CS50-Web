@@ -17,17 +17,32 @@
     <h2 class="col1-heading">Find pages with</h2>
     <h3 class="col3-heading">To do this in the search box</h3>
   </div>
-  <div class="advanced-input-grid">
-    <ul class="column-one">
-      <li class="col-one-item">all these words:</li>
-      <li class="col-one-item">this exact word or phrase:</li>
-      <li class="col-one-item">any of these words:</li>
-      <li class="col-one-item">none of these words:</li>
-      <li class="col-one-item">numbers ranging from:</li>
-    </ul>
-    <ul class="column-two">
-      <input class="column-two-item" type="text">
-    </ul>
-  </div>
+  <form action="https://www.google.com/search" method="get">
+    <div class="advanced-input-grid">
+      <ul class="column-one">
+        <li class="col-one-item">all these words:</li>
+        <li class="col-one-item">this exact word or phrase:</li>
+        <li class="col-one-item">any of these words:</li>
+        <li class="col-one-item">none of these words:</li>
+        <li class="col-one-item">numbers ranging from:</li>
+      </ul>
+      <ul class="column-two">
+        <input class="column-two-item" type="text" name="as_q">
+        <input class="column-two-item" type="text" name="as_epq">
+        <input class="column-two-item" type="text" name="as_oq">
+        <input class="column-two-item" type="text" name="as_eq">
+        <div class="advanced-submit-container">
+          <input class="advanced-submit" type="submit" value="Advanced Search">
+        </div>
+      </ul>
+      <ul class="column-three">
+        <li class="col-three-item">Type the important words: tri-colour rat terrier</li>
+        <li class="col-three-item">Put exact words in quotes: "rat terrier"</li>
+        <li class="col-three-item">Type OR between all the words you want: miniature OR standard</li>
+        <li class="col-three-item">Put a minus sign just before words that you don't want: -rodent, -"Jack Russell"</li>
+        <li class="col-three-item">Put two full stops between the numbers and add a unit of measurement: 10..35 kg, £300..£500, 2010..2011</li>
+      </ul>
+    </div>
+  </form>
 </body>
 </html>
