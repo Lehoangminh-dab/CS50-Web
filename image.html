@@ -2,10 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=2.0">
+  <title>Search</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  
+  <div class="link-container">
+    <a href="index.html" class="nav-link">Search</a>
+  </div>
+  <div class="center-flex-container">
+    <img src="google-image-logo.png" alt="google-image-logo" width="272" height="92">
+  </div>
+  <form action="https://www.google.com/search" method="get">
+    <input type="text" name="q" class="search-bar">
+    <div class="button-container" width="584" height="48">
+      <input type="submit" value="Image Search" class="submit-button">
+      <input type="hidden" name="tbm" value="isch">
+    </div>
+  </form>
 </body>
 </html>
