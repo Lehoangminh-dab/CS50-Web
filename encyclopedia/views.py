@@ -71,23 +71,6 @@ def create_new_page(request):
         if page_content_form.is_valid():
             return HttpResponse(f"<h1>{page_content_form.cleaned_data['page_title']} Added!")
 
-        return render(request, "encyclopedia/create-new-page.htmlk", {
+        return render(request, "encyclopedia/create-new-page.html", {
             "page_content_form": page_content_form
-        })
-
-
-def test(request):
-    if request.method == "GET":
-        test_form = NewPageContentForm()
-        return render(request, "encyclopedia/test.html", {
-            "test_form": test_form
-        })
-
-    if request.method == "POST":
-        test_form = NewPageContentForm(request.POST)
-        if test_form.is_valid():
-            return HttpResponse(f"<h1>{test_form.cleaned_data['page_title']} added!")
-
-        return render(request, "encyclopedia/test.html", {
-            "test_form": test_form
         })
