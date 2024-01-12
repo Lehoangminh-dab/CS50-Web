@@ -2,6 +2,7 @@ import markdown2
 from django.shortcuts import render, redirect
 from django.forms import Form, CharField, Textarea, ValidationError, TextInput
 from . import util
+import random
 
 
 def index(request):
@@ -101,3 +102,9 @@ def edit_page(request, *, title: str):
             return redirect("encyclopedia:entry", title=title)
 
         return render(request, "encyclopedia/error.html")
+
+
+def random_entry(request):
+    entry_titles = util.list_entries()
+    random_entry_title = random.choice(entry_titles)
+    return redirect("encyclopedia:entry", random_entry_title)
