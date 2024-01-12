@@ -1,7 +1,6 @@
-from django.shortcuts import HttpResponse
+import markdown2
 from django.shortcuts import render, redirect
 from django.forms import Form, CharField, Textarea, ValidationError, TextInput
-from markdown2 import markdown
 from . import util
 
 
@@ -11,12 +10,13 @@ def index(request):
     })
 
 
-def entry(request, title: str):
+def entry(request, *, title: str):
     entry_content_in_markdown = util.get_entry(title)
     if entry_content_in_markdown is None:
         return render(request, "encyclopedia/error.html")
 
-    entry_content_in_html = markdown(entry_content_in_markdown)
+    markdown_to_html_converter = markdown2.Markdown()
+    entry_content_in_html = markdown_to_html_converter.convert(entry_content_in_markdown)
     return render(request, "encyclopedia/entry.html", {
         "title": title,
         "entry_content": entry_content_in_html
@@ -69,7 +69,10 @@ def create_new_page(request):
     if request.method == "POST":
         page_content_form = NewPageContentForm(request.POST)
         if page_content_form.is_valid():
-            return HttpResponse(f"<h1>{page_content_form.cleaned_data['page_title']} Added!")
+            page_title = page_content_form.cleaned_data['page_title']
+            page_content = page_content_form.cleaned_data['page_content']
+            util.save_entry(page_title, page_content)
+            return redirect("encyclopedia:entry", title=page_title)
 
         return render(request, "encyclopedia/create-new-page.html", {
             "page_content_form": page_content_form
