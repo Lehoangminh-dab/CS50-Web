@@ -36,3 +36,17 @@ textarea {
 .sidebar h2 {
     margin-top: 5px;
 }
+
+.no-resize {
+    resize: none
+}
+
+.form-control {
+    max-width: 90%;
+}
+
+.centered-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}

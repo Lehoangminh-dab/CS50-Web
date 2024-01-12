@@ -1,4 +1,6 @@
+from django.shortcuts import HttpResponse
 from django.shortcuts import render, redirect
+from django.forms import Form, CharField, Textarea, ValidationError, TextInput
 from markdown2 import markdown
 from . import util
 
@@ -41,3 +43,51 @@ def search(request):
     return render(request, "encyclopedia/search.html", {
         "search_results": search_results
     })
+
+
+class NewPageContentForm(Form):
+    page_title = CharField(label="Enter the page name here", widget=TextInput(attrs={'rows': 1}))
+    page_content = CharField(label="Enter page content here",
+                             widget=Textarea(attrs={'rows': 11, 'style': 'display: block;'}))
+
+    def clean_page_title(self):
+        cleaned_page_title = self.cleaned_data.get('page_title')
+        page_title_already_exists = util.get_entry(cleaned_page_title) is not None
+        if page_title_already_exists:
+            raise ValidationError("Page title already exists!")
+
+        return cleaned_page_title
+
+
+def create_new_page(request):
+    if request.method == "GET":
+        page_content_form = NewPageContentForm()
+        return render(request, "encyclopedia/create-new-page.html", {
+            "page_content_form": page_content_form
+        })
+
+    if request.method == "POST":
+        page_content_form = NewPageContentForm(request.POST)
+        if page_content_form.is_valid():
+            return HttpResponse(f"<h1>{page_content_form.cleaned_data['page_title']} Added!")
+
+        return render(request, "encyclopedia/create-new-page.htmlk", {
+            "page_content_form": page_content_form
+        })
+
+
+def test(request):
+    if request.method == "GET":
+        test_form = NewPageContentForm()
+        return render(request, "encyclopedia/test.html", {
+            "test_form": test_form
+        })
+
+    if request.method == "POST":
+        test_form = NewPageContentForm(request.POST)
+        if test_form.is_valid():
+            return HttpResponse(f"<h1>{test_form.cleaned_data['page_title']} added!")
+
+        return render(request, "encyclopedia/test.html", {
+            "test_form": test_form
+        })
