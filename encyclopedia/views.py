@@ -77,3 +77,27 @@ def create_new_page(request):
         return render(request, "encyclopedia/create-new-page.html", {
             "page_content_form": page_content_form
         })
+
+
+class EditPageContentForm(Form):
+    page_content = CharField(label="Edit page content here",
+                             widget=Textarea(attrs={'rows': 11, 'style': 'display: block;'}))
+
+
+def edit_page(request, *, title: str):
+    if request.method == "GET":
+        initial_page_content = util.get_entry(title)
+        edit_page_content_form = EditPageContentForm(initial={'page_content': initial_page_content})
+        return render(request, "encyclopedia/edit-page.html", {
+            "title": title,
+            "edit_page_content_form": edit_page_content_form
+        })
+
+    if request.method == "POST":
+        edited_page_content_form = EditPageContentForm(request.POST)
+        if edited_page_content_form.is_valid():
+            edited_page_content = edited_page_content_form.cleaned_data['page_content']
+            util.save_entry(title, edited_page_content)
+            return redirect("encyclopedia:entry", title=title)
+
+        return render(request, "encyclopedia/error.html")
