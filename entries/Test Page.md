@@ -45,19 +45,7 @@ easier for you, you can just copy that file to somewhere on your PythonPath
 
 # Quick Usage
 
-As a module:
-```python
->>> import markdown2
->>> markdown2.markdown("*boo!*")  # or use `html = markdown_path(PATH)`
-'<p><em>boo!</em></p>\n'
 
->>> from markdown2 import Markdown
->>> markdowner = Markdown()
->>> markdowner.convert("*boo!*")
-'<p><em>boo!</em></p>\n'
->>> markdowner.convert("**boom!**")
-'<p><strong>boom!</strong></p>\n'
-```
 As a script (CLI):
 ```shell
 $ python markdown2.py foo.md > foo.html
@@ -85,12 +73,7 @@ you use an extra ... as a module:
 ```shell
 $ python markdown2.py --extras footnotes foo.md > foo.html
 ```
-as a script:
-```shell
->>> import markdown2
->>> markdown2.markdown("*boo!*", extras=["footnotes"])
-'<p><em>boo!</em></p>\n'
-```
+
 There are a number of currently implemented extras for tables, footnotes,
 syntax coloring of `<pre>`-blocks, auto-linking patterns, table of contents,
 Smarty Pants (for fancy quotes, dashes, etc.) and more. See the [Extras
